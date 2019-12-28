@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>当前计数:{{counter}}</h2>
+        <!-- <button v-on:click="counter++">+</button> -->
+        <!-- <button v-on:click="counter--">-</button> -->
+        <button v-on:click="add">+</button>
+        <button v-on:click="sub">-</button>
+        <button @click="add">+</button>
+        <button @click="sub">-</button>
+    </div>
+
+    <script src="../j's/vue.js"></script>
+    <script>
+        const obj = {
+            counter:0
+        }
+        // 语法糖：简写  @click 是 v-on:click 的简写
+        const app = new Vue({
+            el:'#app',
+            data:obj,
+            methods: {
+               add:function(){
+                   console.log("add 被执行");
+                   this.counter++;
+               } ,
+               sub:function(){
+                   console.log("sub 被执行");
+                   this.counter--;
+               }
+            },
+            created() {
+                //1.第一次页面 网络请求
+                console.log("created");
+            },
+            mounted() {
+                 //2. 数据变化的时候
+                console.log("mounted");
+            },
+            beforeCreate() {
+                //3. 钩子函数
+            },
+        })
+        
+    </script>
+</body>
+</html> 
