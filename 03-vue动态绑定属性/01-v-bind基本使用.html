@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    <!-- 错误做法 你能用{{}} -->
+    <img src="{{imgUrl}}">
+    <!-- 正确 -->
+    <img v-bind:src="imgUrl">
+    <a v-bind:href="aHref">百度</a>
+    <!-- 语法糖 v-bind -->
+    <img :src="imgUrl">
+    <a :href="aHref">百度</a>
+    
+    
+</div>
+<script src="../j's/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊',
+            imgUrl: 'https://cn.vuejs.org/images/logo.png',
+            aHref: 'http://www.baidu.com'
+        }
+    })
+</script>
+</body>
+</html>
