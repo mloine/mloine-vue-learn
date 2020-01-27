@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    {{fullName}}
+</div>
+<script src="../j's/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊',
+            firtName: 'kobe',
+            lastName: 'mloine'
+        },
+        computed: {
+            // fullName:function(){
+            //     return this.firtName + this.lastName;
+            // }
+            // 计算属性 一般不设置set方法 只读属性
+            fullName:{
+                set: function(newValue){
+                    console.log("sldjalskdjsadjsalkdjsa"+newValue);
+                     this.firtName = newValue.split(' ')[0];
+                     this.lastName = newValue.split(' ')[1];
+                },
+                get: function(){
+                    return this.firtName + ' ' +this.lastName;
+                }
+            }
+        },
+    })
+</script>
+</body>
+</html>

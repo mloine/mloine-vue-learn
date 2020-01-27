@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    <!-- 条件判断 -->
+    <div v-if="isShow">
+        <h2>abc</h2>
+        <h2>abc</h2>
+        <h2>abc</h2>
+        <h2>abc</h2>
+        <h2>abc</h2>
+        <h2>abc</h2>
+        {{message}}
+
+    </div>
+    <h2 v-else>isShouw为false显示我{{message}}</h2>
+</div>
+<script src="../j's/vue.js"></script> 
+<script> 
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊',
+            isShow:true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    <button @click="btn1Click">按钮1</button>
+    <button @click="btn1Click()">按钮1</button>
+
+    <!-- 123 -->
+    <button @click="btn2Click(123)">按钮2</button>
+    <!-- undefind -->
+    <button @click="btn2Click()">按钮2</button>
+    <!-- object MouseEvent -->
+    <button @click="btn2Click">按钮2</button>
+    <!-- 如何参数拿到事件event对象   $event -->
+    <button @click="btn3Click('abc',$event)">按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+</div>
+<script src="../j's/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊'
+        },
+        methods: {
+            btn1Click(){
+                console.log("btn1Click");
+                
+            },
+            btn2Click(abc){
+                console.log("btn2Click------"+abc)
+            },
+            btn3Click(abc,event){
+                console.log("+++++++=" , abc,event);
+                
+            }
+        },
+    })
+</script>
+</body>
+</html>
