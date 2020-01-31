@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <cpn v-bind:cmovies ='movies' :cmessage='message'></cpn>
+    <cpn  :cmessage='message'></cpn>
+</div>
+
+<template id='cpn'>
+    <div>
+        <p>{{cmovies}}</p>
+        <h2>{{cmessage}}</h2>
+        <p v-for="item in cmovies">{{item}}</p>
+    </div>
+</template>
+<script src="../j's/vue.js"></script>
+<script>
+    // 父传子 props
+    const cpn = {
+        template: '#cpn',
+        // props:['cmovies','cmessage'],
+        //类型限制
+        props:{
+            // cmovies:Array,
+            // cmessage:String
+            cmessage:{
+                type:String,
+                default:'xyk',
+                required:true
+            },
+            cmovies:{
+                type:Array,
+                default(){
+                    return ['a','b','c','d'];
+                }
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊',
+            movies:['abc','def','ghi']
+        },
+        components:{
+            'cpn':cpn
+        }
+    })
+</script>
+</body>
+</html>

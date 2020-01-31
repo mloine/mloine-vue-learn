@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <!-- 驼峰命名 需要特别注意 不支持 只能用- -->
+    <cpn :c-info='info' :child-message='message'></cpn>
+</div>
+<!-- 模版区域 -->
+<template id='cpn'>
+    <div>
+        <div>{{cInfo}}</div>
+        <div>{{childMessage}}</div>
+    </div>
+</template>
+
+<script src="../j's/vue.js"></script>
+<script>
+
+    const cpn = {
+        template:'#cpn',
+        props:{
+            cInfo:{
+                type:Object,
+                default(){
+                    return {};
+                }
+            },
+            childMessage:{
+                type:String,
+                default(){
+                    return '';
+                }
+            }        
+        }
+    }
+    //全局组件
+    Vue.component('cpn', cpn);
+
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊',
+            info:{
+                name:'mloine',
+                age:18,
+                height:1.75
+            }
+        }
+    })
+</script>
+</body>
+</html>  
