@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mloine</title>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn><button>按钮2121</button></cpn>
+    <cpn><span>😄</span></cpn>
+    <cpn>
+        <i>啊哈哈</i>
+        <h2>212121</h2>
+        <h3>3333</h3>
+    </cpn>
+</div>
+
+<template id='cpn'>
+    <div>
+        <h2>我是组件</h2>
+        <p>我是组件哈哈哈</p>
+        <!-- 预留插槽 可以给默认值 -->
+        <slot><button>按钮</button></slot>
+    </div>
+</template>
+
+<script src="../j's/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: '你好啊'
+        },
+        components:{
+            'cpn':{
+                template:'#cpn'
+            }
+        }
+    })
+</script>
+</body>
+</html>
