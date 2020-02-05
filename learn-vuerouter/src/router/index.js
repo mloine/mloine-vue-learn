@@ -14,22 +14,45 @@ Vue.use(VueRouter)
 const Home = () => import("../components/Home")
 const About = () => import("../components/About")
 const User = () => import("../components/User")
+const HomeNews = () => import("../components/HomeNews")
+const HomeMessages = () => import("../components/HomeMessage")
+const Profile = () => import("../components/Profile")
 
 const routes = [
   // 默认 设置重定向到主页
   {
     path:'/',
     redirect:'/home'
+
   },
   {
     path:'/home',
-    component:Home
+    component:Home,
+    children:[
+      {
+        path:'',
+        // component:HomeNews,
+        redirect:'news'
+      },
+      {
+        path:'news',
+        component:HomeNews
+      },
+      {
+        path:'messages',
+        component:HomeMessages
+      }
+
+    ]
   },{
     path:'/about',
     component:About
   },{
     path:'/user/:userId',
     component:User
+  },{
+    path:'/profile',
+    component:Profile
   }
 ]
 

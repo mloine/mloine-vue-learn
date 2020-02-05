@@ -13,6 +13,18 @@
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
     <router-link :to="'/user/' + userId">用户</router-link>
+<!--    <router-link to="/profile">档案</router-link>-->
+    <router-link :to="{
+      path:'/profile',
+      query:{
+        name:userId,
+        age:18,
+        height:1.75
+      }
+    }">档案</router-link>
+
+    <button @click="userClick">用户</button>
+    <button @click="profileClick">档案</button>
 
     <router-view ></router-view>
   </div>
@@ -34,7 +46,17 @@ export default {
       console.log('about')
     },
     userClick(){
-      this.$router.replace('/user')
+      this.$router.replace('/user/'+this.userId)
+    },
+    profileClick(){
+
+      this.$router.replace({
+        path:'/profile',
+        query:{
+          name:this.userId,
+          age:25,
+          height:1.75
+        }})
     }
   },
   data(){
