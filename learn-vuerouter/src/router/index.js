@@ -22,12 +22,17 @@ const routes = [
   // 默认 设置重定向到主页
   {
     path:'/',
-    redirect:'/home'
-
+    redirect:'/home',
+    meta:{
+      title:'首页'
+    }
   },
   {
     path:'/home',
     component:Home,
+    meta:{
+      title:'首页'
+    },
     children:[
       {
         path:'',
@@ -46,13 +51,22 @@ const routes = [
     ]
   },{
     path:'/about',
-    component:About
+    component:About,
+    meta:{
+      title:'关于'
+    }
   },{
     path:'/user/:userId',
-    component:User
+    component:User,
+    meta:{
+      title:'用户'
+    }
   },{
     path:'/profile',
-    component:Profile
+    component:Profile,
+    meta:{
+      title:'档案'
+    }
   }
 ]
 
@@ -63,6 +77,13 @@ const router = new VueRouter({
   linkActiveClass:'mloine'
 })
 
+// 导航守卫 动态修改当前页面title
+router.beforeEach((to,from,next) => {
+  document.title = to.matched[0].meta.title
+  console.log(to)
+  next();
+  }
+)
 
 //3. 将router 传到vue实例
 export default router

@@ -46,11 +46,10 @@ export default {
       console.log('about')
     },
     userClick(){
-      this.$router.replace('/user/'+this.userId)
+      this.$router.push('/user/'+this.userId)
     },
     profileClick(){
-
-      this.$router.replace({
+      this.$router.push({
         path:'/profile',
         query:{
           name:this.userId,
