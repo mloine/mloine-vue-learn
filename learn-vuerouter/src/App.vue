@@ -6,13 +6,15 @@
 <!--    <router-link to="/home" tag="button" replace >首页1</router-link>-->
 <!--    <router-link to="/about" tag="button" replace >关于1</router-link>-->
 
-    <button @click="homeClick">首页</button>
-    <button @click="aboutClick">关于</button>
+<!--    <button @click="homeClick">首页</button>-->
+<!--    <button @click="aboutClick">关于</button>-->
+<!--    <button @click="userClick">用户</button>-->
 
-    <h2>hello world</h2>
-    <router-view></router-view>
-    <router-view></router-view>
-    <h3>mloine</h3>
+    <router-link to="/home">首页</router-link>
+    <router-link to="/about">关于</router-link>
+    <router-link :to="'/user/' + userId">用户</router-link>
+
+    <router-view ></router-view>
   </div>
 </template>
 
@@ -30,6 +32,14 @@ export default {
       // this.$router.push('/about')
       this.$router.replace('/about')
       console.log('about')
+    },
+    userClick(){
+      this.$router.replace('/user')
+    }
+  },
+  data(){
+    return {
+      userId:'zhangsan'
     }
   }
 }

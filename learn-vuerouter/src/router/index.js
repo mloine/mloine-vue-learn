@@ -6,8 +6,14 @@ import Vue from 'vue'
 Vue.use(VueRouter)
 
 //  2.创建路由对象
-import Home from "../components/Home";
-import About from "../components/About";
+// import Home from "../components/Home";
+// import About from "../components/About";
+// import User from "../components/User";
+
+// 路由懒加载
+const Home = () => import("../components/Home")
+const About = () => import("../components/About")
+const User = () => import("../components/User")
 
 const routes = [
   // 默认 设置重定向到主页
@@ -21,6 +27,9 @@ const routes = [
   },{
     path:'/about',
     component:About
+  },{
+    path:'/user/:userId',
+    component:User
   }
 ]
 
