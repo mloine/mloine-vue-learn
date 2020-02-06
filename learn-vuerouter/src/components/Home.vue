@@ -13,13 +13,30 @@
         name: "Home",
         data(){
             return {
-              message:"msg home"
+              message:"msg home",
+              path:"/home/news"
             }
         },
-        // created() {
-        //   console.log("home create")
-        //   document.title = "首页"
-        // },
+        created() {
+          console.log("home create")
+          document.title = "首页"
+          // this.$router.push("/home/news")
+        },
+        destroyed() {
+          console.log("home destroy")
+        },
+        activated() {
+          console.log("ac");
+          this.$router.push(this.path);
+        },
+        deactivated() {
+          console.log("deac");
+        },
+        beforeRouteLeave(to,from,next){
+          console.log(from.path)
+          this.path = from.path
+          next()
+        }
         // mounted() {
         //   console.log("home mounted")
         // },

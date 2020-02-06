@@ -80,10 +80,16 @@ const router = new VueRouter({
 // 导航守卫 动态修改当前页面title
 router.beforeEach((to,from,next) => {
   document.title = to.matched[0].meta.title
-  console.log(to)
+  // console.log(to)
   next();
   }
 )
+
+
+router.afterEach((to,from) =>{
+  // console.log(to)
+  // console.log("aftereach")
+})
 
 //3. 将router 传到vue实例
 export default router
