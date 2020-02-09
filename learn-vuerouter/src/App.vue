@@ -27,7 +27,8 @@
     <button @click="profileClick">档案</button>
 
     <!--  保持存活 不会创建新的模版  -->
-    <keep-alive>
+    <!--  exclude 排除  -->
+    <keep-alive exclude="Profile,User">
       <router-view></router-view>
     </keep-alive>
   </div>

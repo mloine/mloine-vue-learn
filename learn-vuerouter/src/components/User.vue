@@ -29,7 +29,14 @@
           console.log(this.name)
           this.test();
         }
+      },
+      created() {
+        console.log("User create")
+      },
+      destroyed() {
+        console.log("User destroyed")
       }
+
     }
 </script>
 
