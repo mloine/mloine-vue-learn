@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Promise.all([
+        // new Promise((resolve, reject) => {
+        //     $.ajax({
+        //         url:"url1",
+        //         success:function (data) {
+        //             console.log("1")
+        //             resolve(data)
+        //         }
+        //     })
+        // }),
+        // new Promise(((resolve, reject) => {
+        //     $.ajax({
+        //         url:"url2",
+        //         success:function (data) {
+        //             console.log("2")
+        //             resolve(data)
+        //         }
+        //     })
+        // }))
+        new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                resolve({
+                    age:18,
+                    height:1.75
+                })
+            },1000)
+        }),
+        new Promise(((resolve, reject) => {
+            setTimeout(()=>{
+                resolve('result2')
+            },2000)
+        }))
+    ]).then(results =>{
+        console.log(results)
+    })
+</script>
+</body>
+</html>

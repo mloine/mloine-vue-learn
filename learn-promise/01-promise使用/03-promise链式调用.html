@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Promise 异步请求的一种解决方案   逻辑比较清晰
+    new Promise((resolves,reject)=>{
+        setTimeout(()=>{
+            resolves()
+        },1000)
+    }).then(()=>{
+        console.log("hello world")
+        console.log("hello world")
+        console.log("hello world")
+        console.log("hello world")
+        console.log("hello world")
+        console.log("hello world")
+
+        new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                resolve('sasa')
+            },1000)
+        }).then((msg)=>{
+            console.log("hello world2"+msg)
+            console.log("hello world2"+msg)
+            console.log("hello world2"+msg)
+            console.log("hello world2"+msg)
+            console.log("hello world2"+msg)
+            console.log("hello world2"+msg)
+
+            new Promise((resolve, reject) => {
+                // setTimeout(resolve,1000)
+                setTimeout(()=>{
+                    reject('error msg')
+                },1000)
+            }).then(()=>{
+                console.log("hello java")
+                console.log("hello java")
+                console.log("hello java")
+                console.log("hello java")
+                console.log("hello java")
+                console.log("hello java")
+            }).catch((msg)=>{
+                console.log(msg);
+                console.log(msg);
+                console.log(msg);
+                console.log(msg);
+                console.log(msg);
+            })
+
+
+        })
+    })
+</script>
+</body>
+</html>
